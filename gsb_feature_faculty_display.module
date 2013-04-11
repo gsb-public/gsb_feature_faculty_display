@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Code for the GSB Feature Faculty Display feature.
+ */
+
+include_once 'gsb_feature_faculty_display.features.inc';
+
+
+/**
+ * Implements hook_apachesolr_index_document_build_node().
+ *
+ */
+function gsb_feature_faculty_display_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $env_id) {
+  if ($entity->type == 'faculty') {
+    if (!empty($entity->field_image_single_public)) {
+      $document->setMultiValue('sm_field_image_single_public', $entity->field_image_single_public[LANGUAGE_NONE][0]['uri']);
+    }
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function gsb_feature_faculty_display_block_info() {
+  $blocks['az_list'] = array(
+    'info' => 'A-Z list for Faculty search.',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ */
+function gsb_feature_faculty_display_block_view($delta = '') {
+  if ($delta == 'az_list') {
+    drupal_add_js(drupal_get_path('module', 'gsb_feature_faculty_display') . '/js/gsb_feature_faculty_display.js', array('scope' => 'footer'));
+    $block['subject'] = '';
+    $block['content'] = '<ul class="facet-title-az"><li>' . t('All') . '</li>';
+    for ($i = 65; $i <= 90; $i++) {
+      $block['content'] .= '<li>';
+      $block['content'] .= chr($i);
+      $block['content'] .= '</li>';
+    }
+    
+    $block['content'] .= '</ul>';
+
+    return $block;
+  }
+}
