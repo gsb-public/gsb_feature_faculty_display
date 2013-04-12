@@ -68,6 +68,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'designed-box';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -98,7 +99,7 @@ function gsb_feature_faculty_display_views_default_views() {
   /* Display: faculty-list */
   $handler = $view->new_display('panel_pane', 'faculty-list', 'faculty_list');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-faculty-filters designed-box';
+  $handler->display->display_options['css_class'] = 'view-faculty-filters';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -239,6 +240,7 @@ function gsb_feature_faculty_display_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'view-faculty-filters';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
@@ -269,6 +271,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 0;
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'designed-box';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -277,13 +280,13 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
-  /* Field: Apache Solr: sm_field_image_single_public */
-  $handler->display->display_options['fields']['sm_field_image_single_public']['id'] = 'sm_field_image_single_public';
-  $handler->display->display_options['fields']['sm_field_image_single_public']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['sm_field_image_single_public']['field'] = 'sm_field_image_single_public';
-  $handler->display->display_options['fields']['sm_field_image_single_public']['label'] = '';
-  $handler->display->display_options['fields']['sm_field_image_single_public']['alter']['text'] = '[sm_field_image_single_public]';
-  $handler->display->display_options['fields']['sm_field_image_single_public']['element_label_colon'] = FALSE;
+  /* Field: Apache Solr: ss_field_image_single_public */
+  $handler->display->display_options['fields']['ss_field_image_single_public']['id'] = 'ss_field_image_single_public';
+  $handler->display->display_options['fields']['ss_field_image_single_public']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['ss_field_image_single_public']['field'] = 'ss_field_image_single_public';
+  $handler->display->display_options['fields']['ss_field_image_single_public']['label'] = '';
+  $handler->display->display_options['fields']['ss_field_image_single_public']['alter']['text'] = '[ss_field_image_single_public]';
+  $handler->display->display_options['fields']['ss_field_image_single_public']['element_label_colon'] = FALSE;
   /* Field: Apache Solr: label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
@@ -307,7 +310,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keyword']['expose']['operator_id'] = '';
-  $handler->display->display_options['filters']['keyword']['expose']['label'] = 'Search';
+  $handler->display->display_options['filters']['keyword']['expose']['label'] = 'Search the Faculty Directory';
   $handler->display->display_options['filters']['keyword']['expose']['operator'] = 'keyword_op';
   $handler->display->display_options['filters']['keyword']['expose']['identifier'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['expose']['remember_roles'] = array(

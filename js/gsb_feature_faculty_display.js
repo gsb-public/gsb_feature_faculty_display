@@ -4,7 +4,6 @@
   */
  Drupal.behaviors.gsbFacultyAZ = {
    attach: function (context, settings) {
-     $('#views-exposed-form-faculty-filters-faculty-list .views-widget-filter-title').css('display', 'none');
      $('ul.facet-title-az li').click(function() {
        var $this = $(this);
        var $letter = $this.text();
