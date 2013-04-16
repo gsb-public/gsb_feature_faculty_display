@@ -98,7 +98,6 @@ function gsb_feature_faculty_display_views_default_views() {
   /* Display: faculty-list */
   $handler = $view->new_display('panel_pane', 'faculty-list', 'faculty_list');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-faculty-filters';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
