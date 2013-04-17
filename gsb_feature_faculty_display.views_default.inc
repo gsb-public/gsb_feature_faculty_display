@@ -26,6 +26,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
@@ -67,8 +68,13 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'designed-box';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['alternating'] = 0;
+  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'node|title';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -98,6 +104,7 @@ function gsb_feature_faculty_display_views_default_views() {
   /* Display: faculty-list */
   $handler = $view->new_display('panel_pane', 'faculty-list', 'faculty_list');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -119,42 +126,6 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photo */
-  $handler->display->display_options['fields']['field_image_single_public']['id'] = 'field_image_single_public';
-  $handler->display->display_options['fields']['field_image_single_public']['table'] = 'field_data_field_image_single_public';
-  $handler->display->display_options['fields']['field_image_single_public']['field'] = 'field_image_single_public';
-  $handler->display->display_options['fields']['field_image_single_public']['label'] = '';
-  $handler->display->display_options['fields']['field_image_single_public']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image_single_public']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image_single_public']['settings'] = array(
-    'image_style' => '170x170',
-    'image_link' => '',
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Rank */
-  $handler->display->display_options['fields']['field_rank']['id'] = 'field_rank';
-  $handler->display->display_options['fields']['field_rank']['table'] = 'field_data_field_rank';
-  $handler->display->display_options['fields']['field_rank']['field'] = 'field_rank';
-  $handler->display->display_options['fields']['field_rank']['label'] = '';
-  $handler->display->display_options['fields']['field_rank']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_rank']['settings'] = array(
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -189,6 +160,7 @@ function gsb_feature_faculty_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_academic_area_single_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['vocabulary'] = 'academic_area';
   /* Filter criterion: Content: Centers and Research Programs (field_centers_research_programs) */
@@ -208,6 +180,7 @@ function gsb_feature_faculty_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
   /* Filter criterion: Content: Title */
@@ -246,7 +219,7 @@ function gsb_feature_faculty_display_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['css_class'] = 'view-faculty-filters';
+  $handler->display->display_options['css_class'] = 'view-list-search';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
@@ -277,7 +250,6 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 0;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'designed-box';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';

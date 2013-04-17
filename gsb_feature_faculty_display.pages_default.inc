@@ -15,7 +15,7 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Faculty search page';
   $page->admin_description = '';
-  $page->path = 'faculty-search/!keywords';
+  $page->path = 'faculty-research/faculty/!keywords';
   $page->access = array(
     'plugins' => array(
       0 => array(
