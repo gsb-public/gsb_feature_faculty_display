@@ -431,6 +431,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['css_class'] = 'view-list-search';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -526,6 +527,7 @@ function gsb_feature_faculty_display_views_default_views() {
   /* Display: Solr search */
   $handler = $view->new_display('panel_pane', 'Solr search', 'solr_search');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['link_url'] = 'faculty-research/faculty';
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
