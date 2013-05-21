@@ -209,6 +209,30 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'centers_research_programs';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '10';
+  /* Filter criterion: Content: Search field (field_search_field) */
+  $handler->display->display_options['filters']['field_search_field_value']['id'] = 'field_search_field_value';
+  $handler->display->display_options['filters']['field_search_field_value']['table'] = 'field_data_field_search_field';
+  $handler->display->display_options['filters']['field_search_field_value']['field'] = 'field_search_field_value';
+  $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_search_field_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['operator_id'] = 'field_search_field_value_op';
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['operator'] = 'field_search_field_value_op';
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['identifier'] = 'search';
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+    9 => 0,
+  );
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Faculty list */
   $handler = $view->new_display('panel_pane', 'Faculty list', 'faculty_list');
@@ -415,124 +439,6 @@ function gsb_feature_faculty_display_views_default_views() {
     ),
   );
   $export['faculty_filters'] = $view;
-
-  $view = new view();
-  $view->name = 'faculty_search';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'apachesolr__acquia_search_server_1';
-  $view->human_name = 'Faculty search';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['css_class'] = 'view-list-search';
-  $handler->display->display_options['use_ajax'] = TRUE;
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['link_display'] = 'custom_url';
-  $handler->display->display_options['access']['type'] = 'none';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
-  $handler->display->display_options['exposed_form']['options']['bef'] = array(
-    'general' => array(
-      'allow_secondary' => 0,
-      'secondary_label' => 'Advanced options',
-    ),
-    'keyword' => array(
-      'more_options' => array(
-        'is_secondary' => 0,
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-      ),
-    ),
-  );
-  $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 1;
-  $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
-  $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
-  /* Field: Apache Solr: path */
-  $handler->display->display_options['fields']['path']['id'] = 'path';
-  $handler->display->display_options['fields']['path']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['path']['field'] = 'path';
-  $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: ss_field_image_apachesolr */
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['id'] = 'ss_field_image_apachesolr';
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['field'] = 'ss_field_image_apachesolr';
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['label'] = '';
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['alter']['path'] = '[path]';
-  $handler->display->display_options['fields']['ss_field_image_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: label */
-  $handler->display->display_options['fields']['label']['id'] = 'label';
-  $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['label']['field'] = 'label';
-  $handler->display->display_options['fields']['label']['label'] = '';
-  $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_rank */
-  $handler->display->display_options['fields']['sm_field_rank']['id'] = 'sm_field_rank';
-  $handler->display->display_options['fields']['sm_field_rank']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['sm_field_rank']['field'] = 'sm_field_rank';
-  $handler->display->display_options['fields']['sm_field_rank']['label'] = '';
-  $handler->display->display_options['fields']['sm_field_rank']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_tags_apachesolr */
-  $handler->display->display_options['fields']['sm_field_tags_apachesolr']['id'] = 'sm_field_tags_apachesolr';
-  $handler->display->display_options['fields']['sm_field_tags_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['sm_field_tags_apachesolr']['field'] = 'sm_field_tags_apachesolr';
-  $handler->display->display_options['fields']['sm_field_tags_apachesolr']['label'] = '';
-  $handler->display->display_options['fields']['sm_field_tags_apachesolr']['element_label_colon'] = FALSE;
-  /* Filter criterion: Apache Solr: bundle */
-  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['value'] = 'faculty';
-  /* Filter criterion: Apache Solr: Search */
-  $handler->display->display_options['filters']['keyword']['id'] = 'keyword';
-  $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
-  $handler->display->display_options['filters']['keyword']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['keyword']['expose']['operator_id'] = '';
-  $handler->display->display_options['filters']['keyword']['expose']['label'] = 'Search the Faculty Directory';
-  $handler->display->display_options['filters']['keyword']['expose']['operator'] = 'keyword_op';
-  $handler->display->display_options['filters']['keyword']['expose']['identifier'] = 'keyword';
-  $handler->display->display_options['filters']['keyword']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-  );
-
-  /* Display: Solr search */
-  $handler = $view->new_display('panel_pane', 'Solr search', 'solr_search');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['link_url'] = 'faculty-research/faculty';
-  $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-  $handler->display->display_options['inherit_panels_path'] = '1';
-  $export['faculty_search'] = $view;
 
   return $export;
 }

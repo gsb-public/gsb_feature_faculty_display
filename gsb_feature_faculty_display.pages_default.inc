@@ -15,29 +15,15 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Faculty search page';
   $page->admin_description = '';
-  $page->path = 'faculty-research/faculty/!keywords';
+  $page->path = 'faculty-research/faculty';
   $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'perm',
-        'settings' => array(
-          'perm' => 'search content',
-        ),
-        'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-    ),
+    'plugins' => array(),
     'logic' => 'and',
     'type' => 'none',
     'settings' => NULL,
   );
   $page->menu = array();
-  $page->arguments = array(
-    'keywords' => array(
-      'settings' => array(),
-      'identifier' => 'No context',
-    ),
-  );
+  $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,
   );
@@ -51,21 +37,12 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Solr Search Panel',
+    'title' => 'Listing Panel',
     'no_blocks' => 0,
     'pipeline' => 'ipe',
-    'css_id' => 'solr-search-panel',
+    'css_id' => '',
     'css' => '',
-    'contexts' => array(
-      1 => array(
-        'identifier' => 'Query string value',
-        'keyword' => 'Keywords',
-        'name' => 'query_string',
-        'key' => 'keyword',
-        'fallback_value' => '',
-        'id' => 1,
-      ),
-    ),
+    'contexts' => array(),
     'relationships' => array(),
     'access' => array(
       'plugins' => array(),
@@ -75,6 +52,8 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
     'panels_breadcrumbs_titles' => 'Search',
     'panels_breadcrumbs_paths' => 'search/site',
     'panels_breadcrumbs_home' => 1,
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
   );
   $display = new panels_display();
   $display->layout = 'gsb-standard-page-two';
@@ -139,19 +118,10 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
     $pane->pid = 'new-3';
     $pane->panel = 'main';
     $pane->type = 'views_panes';
-    $pane->subtype = 'faculty_search-solr_search';
+    $pane->subtype = 'faculty_filters-faculty_list';
     $pane->shown = TRUE;
     $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'context_query_string_1',
-          'not' => FALSE,
-        ),
-      ),
+      'plugins' => array(),
     );
     $pane->configuration = array(
       'widget_title' => NULL,
@@ -181,53 +151,9 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
     $display->panels['main'][2] = 'new-3';
     $pane = new stdClass();
     $pane->pid = 'new-4';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'faculty_filters-faculty_list';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '0',
-          ),
-          'context' => 'context_query_string_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'widget_title' => NULL,
-      'items_per_page' => NULL,
-      'exposed' => array(
-        'sort_by' => NULL,
-        'sort_order' => NULL,
-      ),
-      'use_pager' => NULL,
-      'pager_id' => NULL,
-      'offset' => NULL,
-      'link_to_view' => NULL,
-      'more_link' => NULL,
-      'path' => NULL,
-      'view_settings' => 'fields',
-      'header_type' => 'none',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['main'][3] = 'new-4';
-    $pane = new stdClass();
-    $pane->pid = 'new-5';
     $pane->panel = 'quicklinks';
     $pane->type = 'block';
-    $pane->subtype = 'views--exp-faculty_search-solr_search';
+    $pane->subtype = 'views-6568be020eeffad27e0b157ac6fda9c2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -243,8 +169,8 @@ function gsb_feature_faculty_display_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['quicklinks'][0] = 'new-5';
+    $display->content['new-4'] = $pane;
+    $display->panels['quicklinks'][0] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

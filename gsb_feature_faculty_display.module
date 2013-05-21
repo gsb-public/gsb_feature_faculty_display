@@ -6,24 +6,6 @@
 
 include_once 'gsb_feature_faculty_display.features.inc';
 
-
-/**
- * Implements hook_apachesolr_index_document_build_node().
- *
- */
-function gsb_feature_faculty_display_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $env_id) {
-  if ($entity->type == 'faculty') {
-    if (!empty($entity->field_image_single_public)) {
-      $document->setMultiValue('ss_field_image_apachesolr', $entity->field_image_single_public[LANGUAGE_NONE][0]['uri']);
-    }
-
-    if (!empty($entity->field_academic_area_single)) {
-      $term = taxonomy_term_load($entity->field_academic_area_single[LANGUAGE_NONE][0]['tid']);
-      $document->setMultiValue('sm_field_tags_apachesolr', $entity->field_academic_area_single[LANGUAGE_NONE][0]['tid'] . '>>>' . $term->name);
-    }
-  }
-}
-
 /**
  * Implements hook_block_info().
  */
@@ -50,9 +32,18 @@ function gsb_feature_faculty_display_block_view($delta = '') {
       $block['content'] .= chr($i);
       $block['content'] .= '</li>';
     }
-    
+
     $block['content'] .= '</ul>';
 
     return $block;
+  }
+}
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form().
+ */
+function gsb_feature_faculty_display_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_state['view']->name == 'faculty_filters') {
+    // Exclude the search text field from auto-submit.
+    $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
   }
 }
