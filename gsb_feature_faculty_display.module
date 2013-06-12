@@ -47,3 +47,15 @@ function gsb_feature_faculty_display_form_views_exposed_form_alter(&$form, &$for
     $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
   }
 }
+
+function gsb_feature_faculty_display_gsb_fpp_customizations_icons_alter(&$icons) {
+  $module_path = drupal_get_path('module', 'gsb_feature_faculty_display');
+  $icons_settings = array(
+    'views_panes:faculty_filters-faculty_by_id_or_tag' => 'faculty-by-id-or-tag.jpg',        
+  );
+  foreach($icons_settings as $key => $value) {
+    if (isset($icons[$key]['icon'])) {
+      $icons[$key]['icon'] = $module_path . '/images/' . $value;
+    }
+  }
+}
