@@ -108,6 +108,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['ui_name'] = 'Name';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
@@ -438,6 +439,133 @@ function gsb_feature_faculty_display_views_default_views() {
       'fixed' => '',
       'label' => 'Content: Tag (field_tag)',
     ),
+  );
+
+  /* Display: Faculty by criteria */
+  $handler = $view->new_display('panel_pane', 'Faculty by criteria', 'faculty_by_criteria');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Faculty by criteria';
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_title_position_unlimited' => 'field_title_position_unlimited',
+  );
+  $handler->display->display_options['row_options']['separator'] = ',';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Title/Position */
+  $handler->display->display_options['fields']['field_title_position_unlimited']['id'] = 'field_title_position_unlimited';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['table'] = 'field_data_field_title_position_unlimited';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['field'] = 'field_title_position_unlimited';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['ui_name'] = 'Title';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['label'] = '';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_title_position_unlimited']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  $handler->display->display_options['fields']['field_title_position_unlimited']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Field: Last Name (field_last_name) */
+  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'faculty' => 'faculty',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Academic Area (field_academic_area_single) */
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['id'] = 'field_academic_area_single_tid';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['table'] = 'field_data_field_academic_area_single';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['field'] = 'field_academic_area_single_tid';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['operator_id'] = 'field_academic_area_single_tid_op';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['label'] = 'Academic Area';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['operator'] = 'field_academic_area_single_tid_op';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['identifier'] = 'field_academic_area_single_tid';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    61 => 0,
+    56 => 0,
+    71 => 0,
+    66 => 0,
+    26 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    91 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    136 => 0,
+    141 => 0,
+    146 => 0,
+  );
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['vocabulary'] = 'academic_area';
+  $handler->display->display_options['pane_title'] = 'Faculty: by criteria';
+  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 'fields_override';
+  $handler->display->display_options['exposed_form_overrides'] = array(
+    'field_academic_area_single_tid' => '',
   );
   $export['faculty_filters'] = $view;
 
