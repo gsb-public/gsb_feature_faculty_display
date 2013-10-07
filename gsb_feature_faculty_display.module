@@ -59,6 +59,7 @@ function gsb_feature_faculty_display_form_alter(&$form, &$form_state, $form_id) 
       '#weight' => -30,
     );
 
+    $form["display_settings"]['#access'] = FALSE;
     $form['fields_override']['title']['#access'] = FALSE;
   }
 }
