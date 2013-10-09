@@ -470,7 +470,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Title/Position */
+  /* Field: Title */
   $handler->display->display_options['fields']['field_title_position_unlimited']['id'] = 'field_title_position_unlimited';
   $handler->display->display_options['fields']['field_title_position_unlimited']['table'] = 'field_data_field_title_position_unlimited';
   $handler->display->display_options['fields']['field_title_position_unlimited']['field'] = 'field_title_position_unlimited';
@@ -508,7 +508,7 @@ function gsb_feature_faculty_display_views_default_views() {
     'faculty' => 'faculty',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Academic Area (field_academic_area_single) */
+  /* Filter criterion: Content: Primary Academic Area (field_academic_area_single) */
   $handler->display->display_options['filters']['field_academic_area_single_tid']['id'] = 'field_academic_area_single_tid';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['table'] = 'field_data_field_academic_area_single';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['field'] = 'field_academic_area_single_tid';
