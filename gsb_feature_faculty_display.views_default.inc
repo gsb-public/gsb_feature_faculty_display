@@ -455,12 +455,9 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'title' => 'title',
-    'field_title_position_unlimited' => 'field_title_position_unlimited',
-  );
   $handler->display->display_options['row_options']['separator'] = ',';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
@@ -470,7 +467,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Title/Position */
+  /* Field: Title */
   $handler->display->display_options['fields']['field_title_position_unlimited']['id'] = 'field_title_position_unlimited';
   $handler->display->display_options['fields']['field_title_position_unlimited']['table'] = 'field_data_field_title_position_unlimited';
   $handler->display->display_options['fields']['field_title_position_unlimited']['field'] = 'field_title_position_unlimited';
