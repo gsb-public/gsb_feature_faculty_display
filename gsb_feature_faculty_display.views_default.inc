@@ -473,6 +473,8 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['field_title_position_unlimited']['field'] = 'field_title_position_unlimited';
   $handler->display->display_options['fields']['field_title_position_unlimited']['ui_name'] = 'Title';
   $handler->display->display_options['fields']['field_title_position_unlimited']['label'] = '';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_title_position_unlimited']['element_class'] = 'field-faculty-title';
   $handler->display->display_options['fields']['field_title_position_unlimited']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_title_position_unlimited']['settings'] = array(
     'conditions' => array(
@@ -481,6 +483,7 @@ function gsb_feature_faculty_display_views_default_views() {
       ),
     ),
   );
+  $handler->display->display_options['fields']['field_title_position_unlimited']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_title_position_unlimited']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Field: Last Name (field_last_name) */
