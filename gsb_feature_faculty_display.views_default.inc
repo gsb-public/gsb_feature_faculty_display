@@ -483,7 +483,7 @@ function gsb_feature_faculty_display_views_default_views() {
       ),
     ),
   );
-  $handler->display->display_options['fields']['field_title_position_unlimited']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_title_position_unlimited']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_title_position_unlimited']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Field: Last Name (field_last_name) */
