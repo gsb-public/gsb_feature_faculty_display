@@ -31,10 +31,27 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
+    ),
+    'field_search_field_value' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
     ),
     'term_node_tid_depth' => array(
       'bef_format' => 'bef',
@@ -42,6 +59,7 @@ function gsb_feature_faculty_display_views_default_views() {
         'bef_select_all_none' => 0,
         'bef_collapsible' => 1,
         'is_secondary' => 0,
+        'any_label' => '',
         'bef_filter_description' => '',
         'tokens' => array(
           'available' => array(
@@ -59,6 +77,7 @@ function gsb_feature_faculty_display_views_default_views() {
         'bef_select_all_none' => 0,
         'bef_collapsible' => 1,
         'is_secondary' => 0,
+        'any_label' => '',
         'bef_filter_description' => '',
         'tokens' => array(
           'available' => array(
@@ -70,12 +89,11 @@ function gsb_feature_faculty_display_views_default_views() {
         ),
       ),
     ),
-    'term_node_tid_depth_2' => array(
-      'bef_format' => 'bef',
+    'field_last_name_value' => array(
+      'bef_format' => 'default',
       'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 1,
         'is_secondary' => 0,
+        'any_label' => '',
         'bef_filter_description' => '',
         'tokens' => array(
           'available' => array(
@@ -88,6 +106,8 @@ function gsb_feature_faculty_display_views_default_views() {
       ),
     ),
   );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['pager']['type'] = 'load_more';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -146,6 +166,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
+    3 => 'AND',
     2 => 'OR',
   );
   /* Filter criterion: Content: Published */
@@ -168,6 +189,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['table'] = 'field_data_field_search_field';
   $handler->display->display_options['filters']['field_search_field_value']['field'] = 'field_search_field_value';
   $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_search_field_value']['group'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['operator_id'] = 'field_search_field_value_op';
   $handler->display->display_options['filters']['field_search_field_value']['expose']['operator'] = 'field_search_field_value_op';
@@ -233,6 +255,54 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'centers_research_programs';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '10';
+  /* Filter criterion: Field: Last Name (field_last_name) */
+  $handler->display->display_options['filters']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['filters']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['filters']['field_last_name_value']['field'] = 'field_last_name_value';
+  $handler->display->display_options['filters']['field_last_name_value']['operator'] = 'starts';
+  $handler->display->display_options['filters']['field_last_name_value']['group'] = 3;
+  $handler->display->display_options['filters']['field_last_name_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['operator_id'] = 'field_last_name_value_op';
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['operator'] = 'field_last_name_value_op';
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['identifier'] = 'last_name';
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    61 => 0,
+    56 => 0,
+    71 => 0,
+    66 => 0,
+    26 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    91 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    136 => 0,
+    141 => 0,
+    146 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+  );
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_last_name_value']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Faculty list */
   $handler = $view->new_display('panel_pane', 'Faculty list', 'faculty_list');
@@ -459,7 +529,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Field: Name */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -508,7 +578,7 @@ function gsb_feature_faculty_display_views_default_views() {
     'faculty' => 'faculty',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Primary Academic Area (field_academic_area_single) */
+  /* Filter criterion: Content: Academic Area (field_academic_area_single) */
   $handler->display->display_options['filters']['field_academic_area_single_tid']['id'] = 'field_academic_area_single_tid';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['table'] = 'field_data_field_academic_area_single';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['field'] = 'field_academic_area_single_tid';
