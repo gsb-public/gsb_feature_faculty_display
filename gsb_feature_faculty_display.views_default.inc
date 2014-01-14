@@ -339,6 +339,9 @@ function gsb_feature_faculty_display_views_default_views() {
   );
   $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['type'] = 'convert';
   $handler->display->display_options['arguments']['field_tag_tid']['validate']['fail'] = 'ignore';
+  $handler->display->display_options['gsb_az_filter'] = array(
+    'last_name' => 'last_name',
+  );
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
