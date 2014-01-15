@@ -168,11 +168,6 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'AND',
-    3 => 'AND',
-    2 => 'OR',
-  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -217,7 +212,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
-  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Academic Area';
@@ -240,7 +235,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
-  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['label'] = 'Centers and Research Programs';
@@ -264,7 +259,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_last_name_value']['table'] = 'field_data_field_last_name';
   $handler->display->display_options['filters']['field_last_name_value']['field'] = 'field_last_name_value';
   $handler->display->display_options['filters']['field_last_name_value']['operator'] = 'starts';
-  $handler->display->display_options['filters']['field_last_name_value']['group'] = 3;
+  $handler->display->display_options['filters']['field_last_name_value']['group'] = 1;
   $handler->display->display_options['filters']['field_last_name_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_last_name_value']['expose']['operator_id'] = 'field_last_name_value_op';
   $handler->display->display_options['filters']['field_last_name_value']['expose']['operator'] = 'field_last_name_value_op';
