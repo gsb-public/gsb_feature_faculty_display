@@ -34,8 +34,8 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
-      'allow_secondary' => 0,
-      'secondary_label' => 'Advanced options',
+      'allow_secondary' => 1,
+      'secondary_label' => 'Narrow your results',
     ),
     'field_search_field_value' => array(
       'bef_format' => 'default',
@@ -58,7 +58,7 @@ function gsb_feature_faculty_display_views_default_views() {
       'more_options' => array(
         'bef_select_all_none' => 0,
         'bef_collapsible' => 0,
-        'is_secondary' => 0,
+        'is_secondary' => 1,
         'any_label' => '',
         'bef_filter_description' => '',
         'tokens' => array(
@@ -76,7 +76,7 @@ function gsb_feature_faculty_display_views_default_views() {
       'more_options' => array(
         'bef_select_all_none' => 0,
         'bef_collapsible' => 0,
-        'is_secondary' => 0,
+        'is_secondary' => 1,
         'any_label' => '',
         'bef_filter_description' => '',
         'tokens' => array(
