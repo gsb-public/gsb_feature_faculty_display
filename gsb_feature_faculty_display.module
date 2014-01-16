@@ -38,15 +38,6 @@ function gsb_feature_faculty_display_block_view($delta = '') {
     return $block;
   }
 }
-/**
- * Implements hook_form_FORM_ID_alter() for views_exposed_form().
- */
-function gsb_feature_faculty_display_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_state['view']->name == 'faculty_filters') {
-    // Exclude the search text field from auto-submit.
-    $form['search']['#attributes']['class'][] = 'ctools-auto-submit-exclude';
-  }
-}
 
 /**
  * Implements hook_form_alter().
