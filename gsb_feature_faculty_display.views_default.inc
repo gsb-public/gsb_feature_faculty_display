@@ -162,7 +162,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Tag (field_tag) */
+  /* Contextual filter: Content: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -317,7 +317,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Tag (field_tag) */
+  /* Contextual filter: Content: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -529,7 +529,7 @@ function gsb_feature_faculty_display_views_default_views() {
     'field_rank' => 'field_rank',
     'field_academic_area_single' => 'field_academic_area_single',
   );
-  $handler->display->display_options['row_options']['separator'] = ',';
+  $handler->display->display_options['row_options']['separator'] = '<span class="separator">,</span>';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
