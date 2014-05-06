@@ -525,9 +525,12 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_rank' => 'field_rank',
+    'field_academic_area_single' => 'field_academic_area_single',
+  );
   $handler->display->display_options['row_options']['separator'] = ',';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Name */
@@ -538,24 +541,35 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Title */
-  $handler->display->display_options['fields']['field_title_position_unlimited']['id'] = 'field_title_position_unlimited';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['table'] = 'field_data_field_title_position_unlimited';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['field'] = 'field_title_position_unlimited';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['ui_name'] = 'Title';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['label'] = '';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['element_type'] = 'div';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['element_class'] = 'field-faculty-title';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_title_position_unlimited']['settings'] = array(
+  /* Field: Rank */
+  $handler->display->display_options['fields']['field_rank']['id'] = 'field_rank';
+  $handler->display->display_options['fields']['field_rank']['table'] = 'field_data_field_rank';
+  $handler->display->display_options['fields']['field_rank']['field'] = 'field_rank';
+  $handler->display->display_options['fields']['field_rank']['ui_name'] = 'Rank';
+  $handler->display->display_options['fields']['field_rank']['label'] = '';
+  $handler->display->display_options['fields']['field_rank']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rank']['settings'] = array(
     'conditions' => array(
       0 => array(
         'condition' => '',
       ),
     ),
   );
-  $handler->display->display_options['fields']['field_title_position_unlimited']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_title_position_unlimited']['delta_offset'] = '0';
+  /* Field: Academic Area */
+  $handler->display->display_options['fields']['field_academic_area_single']['id'] = 'field_academic_area_single';
+  $handler->display->display_options['fields']['field_academic_area_single']['table'] = 'field_data_field_academic_area_single';
+  $handler->display->display_options['fields']['field_academic_area_single']['field'] = 'field_academic_area_single';
+  $handler->display->display_options['fields']['field_academic_area_single']['ui_name'] = 'Academic Area';
+  $handler->display->display_options['fields']['field_academic_area_single']['label'] = '';
+  $handler->display->display_options['fields']['field_academic_area_single']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_academic_area_single']['type'] = 'hs_taxonomy_term_reference_last_text_only';
+  $handler->display->display_options['fields']['field_academic_area_single']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Field: Last Name (field_last_name) */
   $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
@@ -622,6 +636,38 @@ function gsb_feature_faculty_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_academic_area_single_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['vocabulary'] = 'academic_area';
+  /* Filter criterion: Content: Rank (field_rank) */
+  $handler->display->display_options['filters']['field_rank_value']['id'] = 'field_rank_value';
+  $handler->display->display_options['filters']['field_rank_value']['table'] = 'field_data_field_rank';
+  $handler->display->display_options['filters']['field_rank_value']['field'] = 'field_rank_value';
+  $handler->display->display_options['filters']['field_rank_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_rank_value']['expose']['operator_id'] = 'field_rank_value_op';
+  $handler->display->display_options['filters']['field_rank_value']['expose']['label'] = 'Rank';
+  $handler->display->display_options['filters']['field_rank_value']['expose']['operator'] = 'field_rank_value_op';
+  $handler->display->display_options['filters']['field_rank_value']['expose']['identifier'] = 'field_rank_value';
+  $handler->display->display_options['filters']['field_rank_value']['expose']['multiple'] = TRUE;
+  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator_id'] = 'field_centers_research_programs_tid_op';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['label'] = 'Circle Affiliation';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator'] = 'field_centers_research_programs_tid_op';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['identifier'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
+  /* Filter criterion: Content: Keywords (field_tag) */
+  $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_tag_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator_id'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['label'] = 'Keywords';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
   $handler->display->display_options['pane_title'] = 'Faculty: by criteria';
   $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -637,6 +683,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['allow']['fields_override'] = 'fields_override';
   $handler->display->display_options['exposed_form_overrides'] = array(
     'field_academic_area_single_tid' => '',
+    'field_rank_value' => '',
   );
   $export['faculty_filters'] = $view;
 
