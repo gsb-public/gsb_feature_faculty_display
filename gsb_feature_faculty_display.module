@@ -45,9 +45,15 @@ function gsb_feature_faculty_display_block_view($delta = '') {
 function gsb_feature_faculty_display_form_alter(&$form, &$form_state, $form_id) {
    // Alter 'Faculty by criteria' content pane settings form.
   if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'faculty_filters-faculty_by_criteria') {
+    //dpm($form);
     asort ($form['exposed']['filter-field_rank_value']['field_rank_value']['#options']);
     $form['display_settings']['#access'] = FALSE;
-    $form['exposed']['filter-field_academic_area_single_tid']['#prefix'] = t('This will display at the top of the block. Please change it accordingly. (Example title: "Accounting Faculty")');    
+    $form['exposed']['title_help_text'] = array(
+      '#prefix' => t('<div id="helptext-form">Selecting an option in more than one field displays only faculty that match all selections made.</div>'),
+      '#weight' => -120);
+    $form['exposed']['filter-field_academic_area_single_tid']['#prefix'] = t('<div id="helptext-title">Example: Behavioral Lab Faculty.</div>');
+    $form['exposed']['filter-field_rank_value']['#prefix'] = t('<div id="helptext-rank">Selecting multiple ranks displays faculty that match at least one of the selections.</div>');
+    $form['exposed']['filter-field_tag_tid']['#prefix'] = t('<div id="helptext-tag">Add only one tag per display.</div>');
     $form['fields_override']['title']['#access'] = FALSE;
   }
 }
