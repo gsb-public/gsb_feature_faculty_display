@@ -139,7 +139,6 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
     'academic_area' => 0,
     'business_insight_topic' => 0,
-    'panopoly_categories' => 0,
     'centers_research_programs' => 0,
     'club_category' => 0,
     'company_organization' => 0,
