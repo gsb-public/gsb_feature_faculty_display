@@ -515,7 +515,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
   $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
-  $handler->display->display_options['pane_title'] = 'Faculty: by criteria';
+  $handler->display->display_options['pane_title'] = 'Faculty: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
