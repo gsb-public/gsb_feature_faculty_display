@@ -337,7 +337,7 @@ function gsb_feature_faculty_display_views_default_views() {
     'last_name' => 'last_name',
   );
   $handler->display->display_options['pane_title'] = 'Faculty';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
