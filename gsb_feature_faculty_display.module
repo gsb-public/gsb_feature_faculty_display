@@ -40,12 +40,12 @@ function gsb_feature_faculty_display_block_view($delta = '') {
 }
 
 /**
- * Implements hook_form_alter().
- */
-function gsb_feature_faculty_display_form_alter(&$form, &$form_state, $form_id) {
-   // Alter 'Faculty by criteria' content pane settings form.
-  if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'faculty_filters-faculty_by_criteria') {
-    //dpm($form);
+  * Implements hook_form_FORM_ID_alter().
+  */
+function gsb_feature_faculty_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state) {
+  // Alter 'Faculty by criteria' content pane settings form.
+  if ($form_state['pane']->subtype == 'faculty_filters-faculty_by_criteria' && $form_state['view']->name == 'faculty_filters' && $form_state['view']->current_display == 'faculty_by_criteria') {
+
     asort ($form['exposed']['filter-field_rank_value']['field_rank_value']['#options']);
     $form['display_settings']['#access'] = FALSE;
     $form['exposed']['title_help_text'] = array(
@@ -55,13 +55,45 @@ function gsb_feature_faculty_display_form_alter(&$form, &$form_state, $form_id) 
     $form['exposed']['filter-field_rank_value']['#prefix'] = t('<div id="helptext-rank">Selecting multiple ranks displays faculty that match at least one of the selections.</div>');
     $form['exposed']['filter-field_tag_tid']['#prefix'] = t('<div id="helptext-tag">Add only one tag per display.</div>');
     $form['fields_override']['title']['#access'] = FALSE;
+
+    $conf = $form_state['conf'];
+    $item['title_link'] = array(
+      '#title' => t('URL'),
+      '#type' => 'textfield',
+      '#weight' => -99,
+      '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
+    );
+    $form['override_title']['#weight'] = -100;
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+
+    $form['#submit'][] = 'faculty_by_criteria_pane_config_submit';
+  }
+}
+
+/**
+ * Submit handler for views_content_views_panes_content_type_edit_form.
+ *  - Save title link field in pane config.
+ */
+function faculty_by_criteria_pane_config_submit($form, &$form_state) {
+  $form_state['conf']['title_link'] = $form_state['values']['title_link'];
+}
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ *  - Alter Faculty by Criteria content pane title to be linked to a custom URL.
+ */
+function gsb_feature_faculty_display_panels_pane_content_alter($content, $pane, $args, $context) {
+  if ($content && $content->subtype == 'faculty_filters-faculty_by_criteria') {
+    if (!empty($pane->configuration['title_link'])) {
+      $content->title = l($content->title, $pane->configuration['title_link']);
+    }
   }
 }
 
 function gsb_feature_faculty_display_gsb_fpp_customizations_icons_alter(&$icons) {
   $module_path = drupal_get_path('module', 'gsb_feature_faculty_display');
   $icons_settings = array(
-    'views_panes:faculty_filters-faculty_by_id_or_tag' => 'faculty-by-id-or-tag.jpg',        
+    'views_panes:faculty_filters-faculty_by_id_or_tag' => 'faculty-by-id-or-tag.jpg',
   );
   foreach($icons_settings as $key => $value) {
     if (isset($icons[$key]['icon'])) {
