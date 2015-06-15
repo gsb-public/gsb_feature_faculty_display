@@ -64,7 +64,7 @@ function gsb_feature_faculty_display_form_views_content_views_panes_content_type
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
     $form['override_title']['#weight'] = -100;
-    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     $form['#submit'][] = 'faculty_by_criteria_pane_config_submit';
   }
