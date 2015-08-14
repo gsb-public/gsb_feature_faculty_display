@@ -85,7 +85,7 @@ function faculty_by_criteria_pane_config_submit($form, &$form_state) {
 function gsb_feature_faculty_display_panels_pane_content_alter($content, $pane, $args, $context) {
   if ($content && $content->subtype == 'faculty_filters-faculty_by_criteria') {
     if (!empty($pane->configuration['title_link'])) {
-      $content->title = l($content->title, $pane->configuration['title_link']);
+      $content->title = decode_entities(l($content->title, $pane->configuration['title_link']));
     }
   }
 }
