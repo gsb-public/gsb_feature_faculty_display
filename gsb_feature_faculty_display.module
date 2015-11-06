@@ -104,3 +104,20 @@ function gsb_feature_faculty_display_gsb_fpp_customizations_icons_alter(&$icons)
     }
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ */
+function gsb_feature_faculty_display_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_state['view']->name == 'faculty_filters' && $form_state['view']->current_display == 'faculty_list') {
+    $form['#action'] = '';
+    $form['secondary']['done'] = array(
+      '#type' => 'submit',
+      '#value' => t('Done'),
+    );
+    $form['secondary']['clear-all'] = array(
+      '#type' => 'button',
+      '#value' => t('Clear All'),
+    );
+  }
+}
