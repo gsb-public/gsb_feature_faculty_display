@@ -895,6 +895,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_academic_area_single_tid']['table'] = 'field_data_field_academic_area_single';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['field'] = 'field_academic_area_single_tid';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_academic_area_single_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['operator_id'] = 'field_academic_area_single_tid_op';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['expose']['label'] = 'Academic Area';
@@ -938,36 +939,13 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_rank_value']['id'] = 'field_rank_value';
   $handler->display->display_options['filters']['field_rank_value']['table'] = 'field_data_field_rank';
   $handler->display->display_options['filters']['field_rank_value']['field'] = 'field_rank_value';
+  $handler->display->display_options['filters']['field_rank_value']['group'] = 1;
   $handler->display->display_options['filters']['field_rank_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_rank_value']['expose']['operator_id'] = 'field_rank_value_op';
   $handler->display->display_options['filters']['field_rank_value']['expose']['label'] = 'Rank';
   $handler->display->display_options['filters']['field_rank_value']['expose']['operator'] = 'field_rank_value_op';
   $handler->display->display_options['filters']['field_rank_value']['expose']['identifier'] = 'field_rank_value';
   $handler->display->display_options['filters']['field_rank_value']['expose']['multiple'] = TRUE;
-  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator_id'] = 'field_centers_research_programs_tid_op';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['label'] = 'Circle Affiliation';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator'] = 'field_centers_research_programs_tid_op';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['identifier'] = 'field_centers_research_programs_tid';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Keywords (field_tag) */
-  $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
-  $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
-  $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
-  $handler->display->display_options['filters']['field_tag_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_tag_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator_id'] = 'field_tag_tid_op';
-  $handler->display->display_options['filters']['field_tag_tid']['expose']['label'] = 'Keywords';
-  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
-  $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
-  $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
-  $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Has Twitter Handle (field_has_twitter_handle) */
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['id'] = 'field_has_twitter_handle_value';
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['table'] = 'field_data_field_has_twitter_handle';
@@ -976,6 +954,7 @@ function gsb_feature_faculty_display_views_default_views() {
     0 => '0',
     1 => '1',
   );
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['group'] = 1;
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['operator_id'] = 'field_has_twitter_handle_value_op';
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['label'] = 'Has Twitter Handle';
@@ -1050,6 +1029,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_has_blog_value']['value'] = array(
     1 => '1',
   );
+  $handler->display->display_options['filters']['field_has_blog_value']['group'] = 1;
   $handler->display->display_options['filters']['field_has_blog_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_has_blog_value']['expose']['operator_id'] = 'field_has_blog_value_op';
   $handler->display->display_options['filters']['field_has_blog_value']['expose']['label'] = 'Has Blog';
@@ -1116,6 +1096,32 @@ function gsb_feature_faculty_display_views_default_views() {
     101 => 0,
   );
   $handler->display->display_options['filters']['field_has_blog_value']['expose']['reduce'] = TRUE;
+  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator_id'] = 'field_centers_research_programs_tid_op';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['label'] = 'Circle Affiliation';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator'] = 'field_centers_research_programs_tid_op';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['identifier'] = 'field_centers_research_programs_tid';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['error_message'] = FALSE;
+  /* Filter criterion: Field: Keywords (field_tag) */
+  $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_tag_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_tag_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator_id'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['label'] = 'Keywords';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
+  $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
   $handler->display->display_options['pane_title'] = 'Faculty: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
