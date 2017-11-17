@@ -852,6 +852,21 @@ function gsb_feature_faculty_display_views_default_views() {
       ),
     ),
   );
+  /* Field: Blog */
+  $handler->display->display_options['fields']['field_link_blog']['id'] = 'field_link_blog';
+  $handler->display->display_options['fields']['field_link_blog']['table'] = 'field_data_field_link_blog';
+  $handler->display->display_options['fields']['field_link_blog']['field'] = 'field_link_blog';
+  $handler->display->display_options['fields']['field_link_blog']['ui_name'] = 'Blog';
+  $handler->display->display_options['fields']['field_link_blog']['label'] = '';
+  $handler->display->display_options['fields']['field_link_blog']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link_blog']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link_blog']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Field: Last Name (field_last_name) */
   $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
@@ -958,6 +973,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['table'] = 'field_data_field_has_twitter_handle';
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['field'] = 'field_has_twitter_handle_value';
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['value'] = array(
+    0 => '0',
     1 => '1',
   );
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['exposed'] = TRUE;
@@ -1026,6 +1042,80 @@ function gsb_feature_faculty_display_views_default_views() {
     101 => 0,
   );
   $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['reduce'] = TRUE;
+  /* Filter criterion: Has Blog */
+  $handler->display->display_options['filters']['field_has_blog_value']['id'] = 'field_has_blog_value';
+  $handler->display->display_options['filters']['field_has_blog_value']['table'] = 'field_data_field_has_blog';
+  $handler->display->display_options['filters']['field_has_blog_value']['field'] = 'field_has_blog_value';
+  $handler->display->display_options['filters']['field_has_blog_value']['ui_name'] = 'Has Blog';
+  $handler->display->display_options['filters']['field_has_blog_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_has_blog_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['operator_id'] = 'field_has_blog_value_op';
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['label'] = 'Has Blog';
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['operator'] = 'field_has_blog_value_op';
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['identifier'] = 'field_has_blog_value';
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    256 => 0,
+    21 => 0,
+    71 => 0,
+    241 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    326 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+    301 => 0,
+    101 => 0,
+  );
+  $handler->display->display_options['filters']['field_has_blog_value']['expose']['reduce'] = TRUE;
   $handler->display->display_options['pane_title'] = 'Faculty: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
