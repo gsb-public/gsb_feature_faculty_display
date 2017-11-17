@@ -302,7 +302,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Keywords (field_tag) */
+  /* Contextual filter: Field: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -726,7 +726,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'no results found.';
   $handler->display->display_options['empty']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Keywords (field_tag) */
+  /* Contextual filter: Field: Keywords (field_tag) */
   $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -836,6 +836,22 @@ function gsb_feature_faculty_display_views_default_views() {
       ),
     ),
   );
+  /* Field: Twitter Handle */
+  $handler->display->display_options['fields']['field_twitter_handle']['id'] = 'field_twitter_handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['table'] = 'field_data_field_twitter_handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['field'] = 'field_twitter_handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['ui_name'] = 'Twitter Handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['label'] = '';
+  $handler->display->display_options['fields']['field_twitter_handle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_twitter_handle']['type'] = 'gsb_field_formatter_twitter_handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['settings'] = array(
+    'text' => 'Twitter',
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Field: Last Name (field_last_name) */
   $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
@@ -925,7 +941,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Keywords (field_tag) */
+  /* Filter criterion: Field: Keywords (field_tag) */
   $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -937,6 +953,79 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
   $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Has Twitter Handle (field_has_twitter_handle) */
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['id'] = 'field_has_twitter_handle_value';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['table'] = 'field_data_field_has_twitter_handle';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['field'] = 'field_has_twitter_handle_value';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['operator_id'] = 'field_has_twitter_handle_value_op';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['label'] = 'Has Twitter Handle';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['operator'] = 'field_has_twitter_handle_value_op';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['identifier'] = 'field_has_twitter_handle_value';
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    256 => 0,
+    21 => 0,
+    71 => 0,
+    241 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    326 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+    301 => 0,
+    101 => 0,
+  );
+  $handler->display->display_options['filters']['field_has_twitter_handle_value']['expose']['reduce'] = TRUE;
   $handler->display->display_options['pane_title'] = 'Faculty: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -948,7 +1037,6 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
-  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 'fields_override';
   $handler->display->display_options['exposed_form_overrides'] = array(
     'field_academic_area_single_tid' => '',
