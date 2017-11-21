@@ -1027,6 +1027,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['filters']['field_has_blog_value']['field'] = 'field_has_blog_value';
   $handler->display->display_options['filters']['field_has_blog_value']['ui_name'] = 'Has Blog';
   $handler->display->display_options['filters']['field_has_blog_value']['value'] = array(
+    0 => '0',
     1 => '1',
   );
   $handler->display->display_options['filters']['field_has_blog_value']['group'] = 1;
@@ -1096,7 +1097,7 @@ function gsb_feature_faculty_display_views_default_views() {
     101 => 0,
   );
   $handler->display->display_options['filters']['field_has_blog_value']['expose']['reduce'] = TRUE;
-  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
+  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
