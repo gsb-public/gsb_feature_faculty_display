@@ -842,10 +842,11 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['field_twitter_handle']['field'] = 'field_twitter_handle';
   $handler->display->display_options['fields']['field_twitter_handle']['ui_name'] = 'Twitter Handle';
   $handler->display->display_options['fields']['field_twitter_handle']['label'] = '';
+  $handler->display->display_options['fields']['field_twitter_handle']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_twitter_handle']['alter']['text'] = '<a class="twitter-handle-text" href="http://twitter.com/@[field_twitter_handle]">@[field_twitter_handle]</a>';
   $handler->display->display_options['fields']['field_twitter_handle']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_twitter_handle']['type'] = 'gsb_field_formatter_twitter_handle';
+  $handler->display->display_options['fields']['field_twitter_handle']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_twitter_handle']['settings'] = array(
-    'text' => 'Twitter',
     'conditions' => array(
       0 => array(
         'condition' => '',
