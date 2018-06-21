@@ -843,7 +843,7 @@ function gsb_feature_faculty_display_views_default_views() {
   $handler->display->display_options['fields']['field_twitter_handle']['ui_name'] = 'Twitter Handle';
   $handler->display->display_options['fields']['field_twitter_handle']['label'] = '';
   $handler->display->display_options['fields']['field_twitter_handle']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_twitter_handle']['alter']['text'] = '<a class="twitter-handle-text" href="http://twitter.com/@[field_twitter_handle]">@[field_twitter_handle]</a>';
+  $handler->display->display_options['fields']['field_twitter_handle']['alter']['text'] = '<a class="twitter-handle-text" href="http://twitter.com/@[field_twitter_handle]" target="_blank">@[field_twitter_handle]</a>';
   $handler->display->display_options['fields']['field_twitter_handle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_twitter_handle']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_twitter_handle']['settings'] = array(
@@ -1098,7 +1098,7 @@ function gsb_feature_faculty_display_views_default_views() {
     101 => 0,
   );
   $handler->display->display_options['filters']['field_has_blog_value']['expose']['reduce'] = TRUE;
-  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
+  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
